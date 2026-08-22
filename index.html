@@ -26,6 +26,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* INK TEXTURE */
 
 body::before {
@@ -33,7 +34,7 @@ body::before {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    opacity: 0.06;
+    opacity: 0.05;
 
     background-image:
         radial-gradient(#fff 0.6px, transparent 0.6px);
@@ -44,9 +45,7 @@ body::before {
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* NAVIGATION */
 
 nav {
     position: fixed;
@@ -60,7 +59,7 @@ nav {
 
     padding: 20px 6%;
 
-    background: rgba(5,5,5,0.92);
+    background: rgba(5,5,5,0.94);
 
     border-bottom: 1px solid #333;
 
@@ -76,8 +75,10 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 25px;
-    font-size: 13px;
+
+    margin-left: 22px;
+
+    font-size: 12px;
     letter-spacing: 2px;
 }
 
@@ -86,9 +87,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
     min-height: 100vh;
@@ -169,7 +168,6 @@ nav a:hover {
 
 .ink-line {
     width: 250px;
-
     height: 3px;
 
     background: white;
@@ -180,9 +178,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   SECTION
-========================= */
+/* SECTIONS */
 
 .section {
     padding: 100px 6%;
@@ -211,9 +207,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   GALLERY
-========================= */
+/* GALLERY */
 
 .gallery {
     max-width: 1300px;
@@ -229,9 +223,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   ART CARDS
-========================= */
+/* ART CARD */
 
 .art {
     background: #eee;
@@ -279,20 +271,39 @@ nav a:hover {
 }
 
 
-/* =========================
-   ART IMAGES
-========================= */
+/* IMAGE FRAME */
 
-.art-image {
+.image-frame {
     width: 100%;
-
     height: 420px;
+
+    border: 3px solid #111;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    display: flex;
+
+    scroll-snap-type: x mandatory;
+
+    background: #111;
+
+    scrollbar-width: thin;
+}
+
+
+/* EACH IMAGE */
+
+.image-frame img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
 
     object-fit: cover;
 
-    display: block;
+    flex-shrink: 0;
 
-    border: 3px solid #111;
+    scroll-snap-align: center;
 
     filter: grayscale(100%);
 
@@ -301,25 +312,31 @@ nav a:hover {
     transition: .3s;
 }
 
-.art:hover .art-image {
+.image-frame img:hover {
     filter:
         grayscale(100%)
         contrast(1.15);
 }
 
 
-/* =========================
-   ANGEL SECOND PHOTO
-========================= */
+/* SCROLL HINT */
 
-.second-image {
-    margin-top: 12px;
+.scroll-hint {
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #777;
+
+    margin-top: 8px;
 }
 
 
-/* =========================
-   ART INFORMATION
-========================= */
+/* ART INFO */
 
 .art-info {
     padding: 22px 10px 10px;
@@ -340,9 +357,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   PRICE + STATUS
-========================= */
+/* PRICE */
 
 .art-bottom {
     display: flex;
@@ -385,9 +400,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   ABOUT
-========================= */
+/* ABOUT */
 
 .about {
     max-width: 900px;
@@ -420,9 +433,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   CONTACT
-========================= */
+/* CONTACT */
 
 .contact {
     text-align: center;
@@ -467,9 +478,7 @@ nav a:hover {
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
     border-top: 1px solid #222;
@@ -488,20 +497,17 @@ footer {
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:650px) {
 
     nav {
-        padding: 18px 15px;
+        padding: 18px 12px;
     }
 
     nav a {
-        margin-left: 9px;
-
-        font-size: 9px;
+        margin-left: 7px;
+        font-size: 8px;
     }
 
     .hero h1 {
@@ -524,7 +530,7 @@ footer {
         gap: 45px;
     }
 
-    .art-image {
+    .image-frame {
         height: 390px;
     }
 
@@ -547,9 +553,7 @@ footer {
 <body>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -559,30 +563,20 @@ footer {
 
     <div>
 
-        <a href="index.html">
-            HOME
-        </a>
+        <a href="index.html">HOME</a>
 
-        <a href="#gallery">
-            ART
-        </a>
+        <a href="#gallery">ART</a>
 
-        <a href="#about">
-            ABOUT
-        </a>
+        <a href="#about">ABOUT</a>
 
-        <a href="contact.html">
-            CONTACT
-        </a>
+        <a href="contact.html">CONTACT</a>
 
     </div>
 
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -604,9 +598,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     GALLERY
-========================= -->
+<!-- GALLERY -->
 
 <section class="section" id="gallery">
 
@@ -626,29 +618,31 @@ footer {
     <div class="gallery">
 
 
-        <!-- =====================
-             ANGEL
-        ====================== -->
+        <!-- ANGEL -->
 
         <article class="art">
 
-            <img
-                class="art-image"
-                src="images/angel1.jpeg"
-                alt="Angel artwork"
-            >
+            <div class="image-frame">
 
-            <img
-                class="art-image second-image"
-                src="images/angel2.jpeg"
-                alt="Angel artwork second view"
-            >
+                <img
+                    src="images/angel1.jpeg"
+                    alt="Angel artwork"
+                >
+
+                <img
+                    src="images/angel2.jpeg"
+                    alt="Angel artwork second view"
+                >
+
+            </div>
+
+            <div class="scroll-hint">
+                ← SWIPE / SCROLL FOR MORE →
+            </div>
 
             <div class="art-info">
 
-                <h3>
-                    Angel
-                </h3>
+                <h3>Angel</h3>
 
                 <p>
                     Original hand-drawn artwork.
@@ -672,23 +666,22 @@ footer {
         </article>
 
 
-        <!-- =====================
-             HOOD SKELETON
-        ====================== -->
+        <!-- HOOD SKELETON -->
 
         <article class="art">
 
-            <img
-                class="art-image"
-                src="images/hoodskeleton1.jpeg"
-                alt="Hood Skeleton artwork"
-            >
+            <div class="image-frame">
+
+                <img
+                    src="images/hoodskeleton1.jpeg"
+                    alt="Hood Skeleton artwork"
+                >
+
+            </div>
 
             <div class="art-info">
 
-                <h3>
-                    Hood Skeleton
-                </h3>
+                <h3>Hood Skeleton</h3>
 
                 <p>
                     Original hand-drawn artwork.
@@ -712,23 +705,22 @@ footer {
         </article>
 
 
-        <!-- =====================
-             LOIN
-        ====================== -->
+        <!-- LOIN -->
 
         <article class="art">
 
-            <img
-                class="art-image"
-                src="images/loin1.jpeg"
-                alt="Loin artwork"
-            >
+            <div class="image-frame">
+
+                <img
+                    src="images/loin1.jpeg"
+                    alt="Loin artwork"
+                >
+
+            </div>
 
             <div class="art-info">
 
-                <h3>
-                    Loin
-                </h3>
+                <h3>Loin</h3>
 
                 <p>
                     Original hand-drawn artwork.
@@ -752,23 +744,22 @@ footer {
         </article>
 
 
-        <!-- =====================
-             ROSE
-        ====================== -->
+        <!-- ROSE -->
 
         <article class="art">
 
-            <img
-                class="art-image"
-                src="images/ros.jpeg"
-                alt="Rose artwork"
-            >
+            <div class="image-frame">
+
+                <img
+                    src="images/rose.jpg"
+                    alt="Rose artwork"
+                >
+
+            </div>
 
             <div class="art-info">
 
-                <h3>
-                    Rose
-                </h3>
+                <h3>Rose</h3>
 
                 <p>
                     Original hand-drawn artwork.
@@ -792,23 +783,22 @@ footer {
         </article>
 
 
-        <!-- =====================
-             SNAKE
-        ====================== -->
+        <!-- SNAKE -->
 
         <article class="art">
 
-            <img
-                class="art-image"
-                src="images/snake1.jpeg"
-                alt="Snake artwork"
-            >
+            <div class="image-frame">
+
+                <img
+                    src="images/snake1.jpeg"
+                    alt="Snake artwork"
+                >
+
+            </div>
 
             <div class="art-info">
 
-                <h3>
-                    Snake
-                </h3>
+                <h3>Snake</h3>
 
                 <p>
                     Original hand-drawn artwork.
@@ -837,9 +827,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section class="about" id="about">
 
@@ -857,9 +845,7 @@ footer {
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 
 <section class="contact">
 
