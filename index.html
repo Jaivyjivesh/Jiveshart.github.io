@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jivesh Art | Original Artwork</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #f5f5f5;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+/* INK TEXTURE */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+
+    background-image:
+        radial-gradient(#fff 0.6px, transparent 0.6px);
+
+    background-size: 5px 5px;
+
+    z-index: 999;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 6%;
+
+    background: rgba(5,5,5,0.9);
+
+    border-bottom: 1px solid #333;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: 100px 20px;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    border: 1px solid #444;
+
+    border-radius: 50%;
+
+    transform: rotate(8deg);
+
+    opacity: .6;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 620px;
+    height: 680px;
+
+    border: 1px solid #222;
+
+    border-radius: 48% 52% 45% 55%;
+
+    transform: rotate(-12deg);
+
+    opacity: .8;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 12vw, 150px);
+
+    line-height: .8;
+
+    letter-spacing: 12px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        3px 3px 0 #333,
+        -2px -2px 0 #222;
+}
+
+.hero p {
+    margin-top: 35px;
+
+    letter-spacing: 6px;
+
+    color: #aaa;
+
+    font-size: 15px;
+}
+
+.ink-line {
+    width: 250px;
+
+    height: 3px;
+
+    background: white;
+
+    margin: 40px auto;
+
+    transform: rotate(-2deg);
+}
+
+
+/* SECTION */
+
+.section {
+    padding: 100px 6%;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+.section-heading h2 {
+    font-size: clamp(35px, 6vw, 65px);
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+}
+
+.section-heading p {
+    margin-top: 15px;
+
+    color: #888;
+
+    letter-spacing: 2px;
+}
+
+
+/* GALLERY */
+
+.gallery {
+    max-width: 1300px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 60px 45px;
+}
+
+
+/* ART CARDS */
+
+.art {
+    background: #eee;
+
+    color: #111;
+
+    padding: 14px;
+
+    position: relative;
+
+    box-shadow:
+        10px 10px 0 #1f1f1f,
+        15px 15px 25px rgba(0,0,0,.7);
+
+    transition: .3s;
+
+    transform: rotate(-1deg);
+}
+
+.art:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+.art:nth-child(3) {
+    transform: rotate(-.5deg);
+}
+
+.art:nth-child(4) {
+    transform: rotate(2deg);
+}
+
+.art:nth-child(5) {
+    transform: rotate(-1.5deg);
+}
+
+.art:hover {
+    transform:
+        translateY(-12px)
+        rotate(0deg)
+        scale(1.02);
+
+    box-shadow:
+        15px 15px 0 #333,
+        20px 25px 35px rgba(0,0,0,.8);
+}
+
+
+/* ART IMAGES */
+
+.art-image {
+    width: 100%;
+
+    height: 420px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border: 3px solid #111;
+
+    filter: grayscale(100%);
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.art:hover .art-image {
+    filter:
+        grayscale(100%)
+        contrast(1.15);
+}
+
+
+/* ART INFORMATION */
+
+.art-info {
+    padding: 22px 10px 10px;
+}
+
+.art-info h3 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.art-info p {
+    color: #555;
+
+    line-height: 1.5;
+
+    font-size: 15px;
+}
+
+
+/* PRICE + STATUS */
+
+.art-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-top: 2px solid #111;
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+}
+
+.price {
+    font-size: 27px;
+
+    font-weight: bold;
+}
+
+.status {
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    padding: 7px 10px;
+
+    border: 2px solid #111;
+}
+
+.available {
+    background: #111;
+
+    color: white;
+}
+
+
+/* ABOUT */
+
+.about {
+    max-width: 900px;
+
+    margin: 100px auto;
+
+    padding: 80px 30px;
+
+    text-align: center;
+
+    border-top: 1px solid #444;
+
+    border-bottom: 1px solid #444;
+}
+
+.about h2 {
+    font-size: 45px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 30px;
+}
+
+.about p {
+    color: #aaa;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+}
+
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+
+    padding: 120px 20px;
+}
+
+.contact h2 {
+    font-size: clamp(40px, 7vw, 80px);
+
+    letter-spacing: 6px;
+}
+
+.contact p {
+    color: #888;
+
+    margin: 20px 0 35px;
+}
+
+.contact a {
+    display: inline-block;
+
+    color: white;
+
+    border: 2px solid white;
+
+    padding: 16px 35px;
+
+    text-decoration: none;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+
+    transition: .25s;
+}
+
+.contact a:hover {
+    background: white;
+
+    color: black;
+}
+
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #222;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #555;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px) {
+
+    nav {
+        padding: 18px 20px;
+    }
+
+    nav a {
+        margin-left: 10px;
+
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        letter-spacing: 5px;
+    }
+
+    .hero::before {
+        width: 350px;
+        height: 350px;
+    }
+
+    .hero::after {
+        width: 330px;
+        height: 370px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .art-image {
+        height: 390px;
+    }
+
+    .section {
+        padding: 70px 20px;
+    }
+}
+
+::selection {
+    background: white;
+
+    color: black;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        JIVESH
+    </div>
+
+    <div>
+
+        <a href="#gallery">ART</a>
+
+        <a href="#about">ABOUT</a>
+
+        <a href="#contact">CONTACT</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            JIVESH<br>
+            ART
+        </h1>
+
+        <div class="ink-line"></div>
+
+        <p>
+            ORIGINAL HAND-DRAWN ARTWORK
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="section" id="gallery">
+
+    <div class="section-heading">
+
+        <h2>
+            THE COLLECTION
+        </h2>
+
+        <p>
+            ORIGINAL PIECES • HAND DRAWN • FRAMED
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+
+        <!-- ANGEL -->
+
+        <article class="art">
+
+            <img
+                class="art-image"
+                src="images/angel1.jpeg"
+                alt="Angel artwork"
+            >
+
+            <div class="art-info">
+
+                <h3>
+                    Angel
+                </h3>
+
+                <p>
+                    Original hand-drawn artwork.
+                    Framed and ready to display.
+                </p>
+
+                <div class="art-bottom">
+
+                    <span class="price">
+                        PRICE HERE
+                    </span>
+
+                    <span class="status available">
+                        AVAILABLE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- HOOD SKELETON -->
+
+        <article class="art">
+
+            <img
+                class="art-image"
+                src="images/hoodskeleton1.jpeg"
+                alt="Hood Skeleton artwork"
+            >
+
+            <div class="art-info">
+
+                <h3>
+                    Hood Skeleton
+                </h3>
+
+                <p>
+                    Original hand-drawn artwork.
+                    Framed and ready to display.
+                </p>
+
+                <div class="art-bottom">
+
+                    <span class="price">
+                        PRICE HERE
+                    </span>
+
+                    <span class="status available">
+                        AVAILABLE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- LOIN -->
+
+        <article class="art">
+
+            <img
+                class="art-image"
+                src="images/loin1.jpeg"
+                alt="Loin artwork"
+            >
+
+            <div class="art-info">
+
+                <h3>
+                    Loin
+                </h3>
+
+                <p>
+                    Original hand-drawn artwork.
+                    Framed and ready to display.
+                </p>
+
+                <div class="art-bottom">
+
+                    <span class="price">
+                        PRICE HERE
+                    </span>
+
+                    <span class="status available">
+                        AVAILABLE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- ROSE -->
+
+        <article class="art">
+
+            <img
+                class="art-image"
+                src="images/roe.jpeg"
+                alt="Rose artwork"
+            >
+
+            <div class="art-info">
+
+                <h3>
+                    Rose
+                </h3>
+
+                <p>
+                    Original hand-drawn artwork.
+                    Framed and ready to display.
+                </p>
+
+                <div class="art-bottom">
+
+                    <span class="price">
+                        PRICE HERE
+                    </span>
+
+                    <span class="status available">
+                        AVAILABLE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SNAKE -->
+
+        <article class="art">
+
+            <img
+                class="art-image"
+                src="images/snake1.jpeg"
+                alt="Snake artwork"
+            >
+
+            <div class="art-info">
+
+                <h3>
+                    Snake
+                </h3>
+
+                <p>
+                    Original hand-drawn artwork.
+                    Framed and ready to display.
+                </p>
+
+                <div class="art-bottom">
+
+                    <span class="price">
+                        PRICE HERE
+                    </span>
+
+                    <span class="status available">
+                        AVAILABLE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <h2>
+        ABOUT THE ART
+    </h2>
+
+    <p>
+        Every piece is drawn by hand.
+        Original artwork created with
+        ink, patience and attention to detail.
+        Every piece is unique.
+    </p>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2>
+        WANT A PIECE?
+    </h2>
+
+    <p>
+        Interested in an artwork?
+        Get in contact.
+    </p>
+
+    <a href="mailto:YOUR-EMAIL@gmail.com">
+        CONTACT ME
+    </a>
+
+</section>
+
+
+<footer>
+
+    © 2026 JIVESH ART
+
+</footer>
+
+
+</body>
+
+</html>
