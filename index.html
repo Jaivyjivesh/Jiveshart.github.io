@@ -44,7 +44,9 @@ body::before {
 }
 
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     position: fixed;
@@ -58,7 +60,7 @@ nav {
 
     padding: 20px 6%;
 
-    background: rgba(5,5,5,0.9);
+    background: rgba(5,5,5,0.92);
 
     border-bottom: 1px solid #333;
 
@@ -84,7 +86,9 @@ nav a:hover {
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 100vh;
@@ -176,7 +180,9 @@ nav a:hover {
 }
 
 
-/* SECTION */
+/* =========================
+   SECTION
+========================= */
 
 .section {
     padding: 100px 6%;
@@ -205,7 +211,9 @@ nav a:hover {
 }
 
 
-/* GALLERY */
+/* =========================
+   GALLERY
+========================= */
 
 .gallery {
     max-width: 1300px;
@@ -221,7 +229,9 @@ nav a:hover {
 }
 
 
-/* ART CARDS */
+/* =========================
+   ART CARDS
+========================= */
 
 .art {
     background: #eee;
@@ -269,7 +279,9 @@ nav a:hover {
 }
 
 
-/* ART IMAGES */
+/* =========================
+   ART IMAGES
+========================= */
 
 .art-image {
     width: 100%;
@@ -296,7 +308,18 @@ nav a:hover {
 }
 
 
-/* ART INFORMATION */
+/* =========================
+   ANGEL SECOND PHOTO
+========================= */
+
+.second-image {
+    margin-top: 12px;
+}
+
+
+/* =========================
+   ART INFORMATION
+========================= */
 
 .art-info {
     padding: 22px 10px 10px;
@@ -317,7 +340,9 @@ nav a:hover {
 }
 
 
-/* PRICE + STATUS */
+/* =========================
+   PRICE + STATUS
+========================= */
 
 .art-bottom {
     display: flex;
@@ -360,7 +385,9 @@ nav a:hover {
 }
 
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about {
     max-width: 900px;
@@ -393,7 +420,9 @@ nav a:hover {
 }
 
 
-/* CONTACT */
+/* =========================
+   CONTACT
+========================= */
 
 .contact {
     text-align: center;
@@ -438,7 +467,9 @@ nav a:hover {
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     border-top: 1px solid #222;
@@ -457,18 +488,20 @@ footer {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:650px) {
 
     nav {
-        padding: 18px 20px;
+        padding: 18px 15px;
     }
 
     nav a {
-        margin-left: 10px;
+        margin-left: 9px;
 
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .hero h1 {
@@ -498,22 +531,25 @@ footer {
     .section {
         padding: 70px 20px;
     }
+
 }
 
 ::selection {
     background: white;
-
     color: black;
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
@@ -523,18 +559,30 @@ footer {
 
     <div>
 
-        <a href="#gallery">ART</a>
+        <a href="index.html">
+            HOME
+        </a>
 
-        <a href="#about">ABOUT</a>
+        <a href="#gallery">
+            ART
+        </a>
 
-        <a href="#contact">CONTACT</a>
+        <a href="#about">
+            ABOUT
+        </a>
+
+        <a href="contact.html">
+            CONTACT
+        </a>
 
     </div>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -556,7 +604,9 @@ footer {
 </section>
 
 
-<!-- GALLERY -->
+<!-- =========================
+     GALLERY
+========================= -->
 
 <section class="section" id="gallery">
 
@@ -576,7 +626,9 @@ footer {
     <div class="gallery">
 
 
-        <!-- ANGEL -->
+        <!-- =====================
+             ANGEL
+        ====================== -->
 
         <article class="art">
 
@@ -584,6 +636,12 @@ footer {
                 class="art-image"
                 src="images/angel1.jpeg"
                 alt="Angel artwork"
+            >
+
+            <img
+                class="art-image second-image"
+                src="images/angel2.jpeg"
+                alt="Angel artwork second view"
             >
 
             <div class="art-info">
@@ -600,7 +658,7 @@ footer {
                 <div class="art-bottom">
 
                     <span class="price">
-                        PRICE HERE
+                        NZ$45
                     </span>
 
                     <span class="status available">
@@ -614,7 +672,9 @@ footer {
         </article>
 
 
-        <!-- HOOD SKELETON -->
+        <!-- =====================
+             HOOD SKELETON
+        ====================== -->
 
         <article class="art">
 
@@ -638,7 +698,7 @@ footer {
                 <div class="art-bottom">
 
                     <span class="price">
-                        PRICE HERE
+                        NZ$40
                     </span>
 
                     <span class="status available">
@@ -652,7 +712,9 @@ footer {
         </article>
 
 
-        <!-- LOIN -->
+        <!-- =====================
+             LOIN
+        ====================== -->
 
         <article class="art">
 
@@ -676,7 +738,7 @@ footer {
                 <div class="art-bottom">
 
                     <span class="price">
-                        PRICE HERE
+                        NZ$40
                     </span>
 
                     <span class="status available">
@@ -690,13 +752,15 @@ footer {
         </article>
 
 
-        <!-- ROSE -->
+        <!-- =====================
+             ROSE
+        ====================== -->
 
         <article class="art">
 
             <img
                 class="art-image"
-                src="images/roe.jpeg"
+                src="images/ros.jpeg"
                 alt="Rose artwork"
             >
 
@@ -714,7 +778,7 @@ footer {
                 <div class="art-bottom">
 
                     <span class="price">
-                        PRICE HERE
+                        NZ$30
                     </span>
 
                     <span class="status available">
@@ -728,7 +792,9 @@ footer {
         </article>
 
 
-        <!-- SNAKE -->
+        <!-- =====================
+             SNAKE
+        ====================== -->
 
         <article class="art">
 
@@ -752,7 +818,7 @@ footer {
                 <div class="art-bottom">
 
                     <span class="price">
-                        PRICE HERE
+                        NZ$35
                     </span>
 
                     <span class="status available">
@@ -771,7 +837,9 @@ footer {
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section class="about" id="about">
 
@@ -789,9 +857,11 @@ footer {
 </section>
 
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
 
-<section class="contact" id="contact">
+<section class="contact">
 
     <h2>
         WANT A PIECE?
@@ -802,7 +872,7 @@ footer {
         Get in contact.
     </p>
 
-    <a href="mailto:YOUR-EMAIL@gmail.com">
+    <a href="contact.html">
         CONTACT ME
     </a>
 
